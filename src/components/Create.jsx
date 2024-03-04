@@ -47,7 +47,7 @@ const Create = () => {
       onSubmit={addProductHandler}
       className="w-screen h-screen p-[5%] mt-20 flex flex-col items-center"
     >
-      <h1 className="text-4xl font-black mr-[29%]">Add New Product</h1>
+      <h1 className="text-4xl font-black w-1/2">Add New Product</h1>
       <input
         type="url"
         placeholder="Image Link"

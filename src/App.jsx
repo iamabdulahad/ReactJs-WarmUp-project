@@ -4,6 +4,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Details from './components/Details'
 import { useLocation } from 'react-router-dom';
 import Create from './components/Create';
+import Edit from './components/Edit';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/create' element={<Create />} />
         <Route path='/' element={<Home />} />
         <Route path='/details/:id' element={<Details />} />
+        <Route path='/edit/:id' element={<Edit />} />
 
       </Routes>
 

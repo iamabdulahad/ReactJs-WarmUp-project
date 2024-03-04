@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { ProductContext } from "../utils/Context";
 
@@ -9,6 +9,11 @@ const Details = () => {
   const [product, setProduct] = useState(null);
 
   const { id } = useParams();
+  const navigate = useNavigate();
+
+
+
+  
 
   // const getSingleProduct = async () => {
   //   try {
@@ -25,6 +30,15 @@ const Details = () => {
     }
   }, []);
 
+
+  const ProductdeleteHandler = (id)=> {
+    const filteredProducts = products.filter((p) => p.id !== id);
+    setProducts(filteredProducts);
+    localStorage.setItem("products", JSON.stringify(filteredProducts));
+    navigate("/");
+
+  }
+
   return product ? (
     <div className="w-[80%] flex items-center h-full  m-auto p-[10%] ">
       <img
@@ -40,8 +54,8 @@ const Details = () => {
         </h2>
         <p className="font-light mt-4 leading-8">{product.description}</p>
         <div className="flex items-center justify-center gap-4 mt-5">
-          <Link className="px-3 py-2 rounded-lg bg-blue-300">Edit</Link>
-          <Link className="px-3 py-2 rounded-lg bg-blue-300">Delete</Link>
+          <Link to={`/edit/${product.id}`}  className="px-3 py-2 rounded-lg bg-blue-300">Edit</Link>
+          <button onClick={() => ProductdeleteHandler(product.id)} className="px-3 py-2 rounded-lg bg-blue-300">Delete</button>
         </div>
       </div>
     </div>
