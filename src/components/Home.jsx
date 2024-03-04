@@ -23,18 +23,20 @@ const Home = () => {
 
 
 
-   const getFilteredProducts = async ()=> {
-    try {
-      const {data} = await axios.get(`/products/category/${category}`);
-      setFilterdProducts(data); 
-    } catch (error) {
-      console.log(error);
-    }
-   }
+  //  const getFilteredProducts = async ()=> {
+  //   try {
+  //     const {data} = await axios.get(`/products/category/${category}`);
+  //     setFilterdProducts(data); 
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //  }
 
    useEffect(() =>{
     if(!filteredProducts || category == 'undefined') setFilterdProducts(products);
-   if (category != "undefined") getFilteredProducts();
+   if (category != "undefined") 
+  //  getFilteredProducts();
+       setFilterdProducts(products.filter(p => p.category == category))
    },[category,products]);
 
  

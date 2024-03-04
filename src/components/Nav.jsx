@@ -22,9 +22,9 @@ const Nav = () => {
 
   return (
     <nav className="h-full w-[20%] bg-slate-300 flex flex-col items-center pt-10">
-      <a className="border px-7 border-blue-500 text-blue-500 py-3" href="">
+      <Link to='/create' className="border px-7 border-blue-500 text-blue-500 py-3" href="">
         Add New Product
-      </a>
+      </Link>
       <hr className="mt-5 w-[80%]" />
       <h1 className="text-xl font-semibold pt-5">Category Filter</h1>
       <div className='mt-5 className="bg-red-200 mt-3" w-[80%]'>
